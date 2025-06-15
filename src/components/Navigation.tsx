@@ -1,8 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,15 +38,36 @@ const Navigation = () => {
           </button>
           
           <div className="hidden md:flex space-x-8">
-            {['Lodging', 'Fragrance', 'New Song Festival', 'Media', 'About'].map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollToSection(item.toLowerCase().replace(/\s+/g, '-'))}
-                className="font-inter text-sm text-gray-600 hover:text-amber-600 transition-colors"
-              >
-                {item}
-              </button>
-            ))}
+            <button
+              onClick={() => scrollToSection('lodging')}
+              className="font-inter text-sm text-gray-600 hover:text-amber-600 transition-colors"
+            >
+              Lodging
+            </button>
+            <Link
+              to="/fragrance"
+              className="font-inter text-sm text-gray-600 hover:text-amber-600 transition-colors"
+            >
+              Fragrance
+            </Link>
+            <button
+              onClick={() => scrollToSection('new-song-festival')}
+              className="font-inter text-sm text-gray-600 hover:text-amber-600 transition-colors"
+            >
+              New Song Festival
+            </button>
+            <button
+              onClick={() => scrollToSection('media')}
+              className="font-inter text-sm text-gray-600 hover:text-amber-600 transition-colors"
+            >
+              Media
+            </button>
+            <button
+              onClick={() => scrollToSection('about')}
+              className="font-inter text-sm text-gray-600 hover:text-amber-600 transition-colors"
+            >
+              About
+            </button>
           </div>
 
           {/* Mobile menu button */}
