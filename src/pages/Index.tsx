@@ -1,8 +1,8 @@
-
 import React from 'react';
 import Navigation from '../components/Navigation';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
+import ClaudeChat from '@/components/ClaudeChat';
 import ItinerarySection from '../components/ItinerarySection';
 import PlaceholderSections from '../components/PlaceholderSections';
 import ContactSection from '../components/ContactSection';
@@ -15,6 +15,7 @@ const Index = () => {
       <main>
         <HeroSection />
         <AboutSection />
+        <ClaudeChat />
         <ItinerarySection />
         <PlaceholderSections />
         <ContactSection />
