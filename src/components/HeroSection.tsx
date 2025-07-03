@@ -13,7 +13,7 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
           {/* Left Column - Banner Image (hidden on mobile) */}
-          <div className="animate-fade-in mt-12 lg:mt-0 lg:mb-0">
+          <div className="animate-fade-in lg:mt-0 lg:mb-0">
             <div className="aspect-square bg-white rounded-2xl shadow-md border border-neutral-200 overflow-hidden">
               <img 
                 src="/SERSummerCamp.jpg" 
@@ -30,7 +30,7 @@ const HeroSection = () => {
               <span className="text-amber-600">Summer Camp 2025</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 mb-8 text-center lg:text-left">
-              Join us for an inspiring summer camp experience in Charlotte, North Carolina from July 6–9, 2025
+              Charlotte, North Carolina<br />July 6–9, 2025
             </p>
             <div className="flex justify-center">
               <button 

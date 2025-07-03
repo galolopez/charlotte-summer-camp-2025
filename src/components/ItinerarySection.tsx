@@ -1,4 +1,5 @@
 import React from 'react';
+import { useInView } from '../hooks/use-in-view';
 
 const times = [
   '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
@@ -42,44 +43,50 @@ const getCellColor = (activity: string | null, dayIdx: number) => {
   return 'bg-rose-100 text-rose-900 font-semibold';
 };
 
-const ItinerarySection = () => (
-  <section id="itinerary" className="py-20 bg-white">
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-12">
-        <h2 className="font-encode text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
-          Camp Itinerary
-        </h2>
-        <div className="w-20 h-1 bg-amber-500 mx-auto"></div>
-      </div>
-      <div className="overflow-x-auto rounded-lg shadow ring-1 ring-gray-200">
-        <table className="min-w-full border-collapse text-sm sm:text-base">
-          <thead>
-            <tr>
-              <th className="bg-amber-100 text-amber-900 px-2 py-3 border-b border-gray-200 text-left">Time</th>
-              {days.map(day => (
-                <th key={day} className="bg-amber-100 text-amber-900 px-2 py-3 border-b border-gray-200">{day}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {times.map(time => (
-              <tr key={time}>
-                <td className="bg-gray-50 px-2 py-2 border-b border-gray-100 font-semibold">{time}</td>
-                {schedule[time].map((activity, dayIdx) => (
-                  <td
-                    key={dayIdx}
-                    className={`px-2 py-2 border-b border-gray-100 align-top text-center ${getCellColor(activity, dayIdx)} rounded`}
-                  >
-                    {activity || ''}
-                  </td>
+const ItinerarySection = () => {
+  const [tableRef, inView] = useInView<HTMLDivElement>({ threshold: 0.15, once: true });
+  return (
+    <section id="itinerary" className="py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="font-encode text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
+            Camp Itinerary
+          </h2>
+          <div className="w-20 h-1 bg-amber-500 mx-auto"></div>
+        </div>
+        <div
+          ref={tableRef}
+          className={`overflow-x-auto rounded-lg shadow ring-1 ring-gray-200 transition-opacity duration-1000 ${inView ? 'animate-fade-in' : 'opacity-0'}`}
+        >
+          <table className="min-w-full border-collapse text-sm sm:text-base">
+            <thead>
+              <tr>
+                <th className="bg-amber-100 text-amber-900 px-2 py-3 border-b border-gray-200 text-left">Time</th>
+                {days.map(day => (
+                  <th key={day} className="bg-amber-100 text-amber-900 px-2 py-3 border-b border-gray-200">{day}</th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {times.map(time => (
+                <tr key={time}>
+                  <td className="bg-gray-50 px-2 py-2 border-b border-gray-100 font-semibold">{time}</td>
+                  {schedule[time].map((activity, dayIdx) => (
+                    <td
+                      key={dayIdx}
+                      className={`px-2 py-2 border-b border-gray-100 align-top text-center ${getCellColor(activity, dayIdx)} rounded`}
+                    >
+                      {activity || ''}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default ItinerarySection;
