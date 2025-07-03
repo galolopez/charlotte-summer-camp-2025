@@ -1,78 +1,85 @@
-
 import React from 'react';
 
-const ItinerarySection = () => {
-  const itineraryData = [
-    { date: 'July 6', morning: 'TBD', afternoon: 'TBD', evening: 'TBD' },
-    { date: 'July 7', morning: 'TBD', afternoon: 'TBD', evening: 'TBD' },
-    { date: 'July 8', morning: 'TBD', afternoon: 'TBD', evening: 'TBD' },
-    { date: 'July 9', morning: 'TBD', afternoon: 'TBD', evening: 'TBD' },
-  ];
+const times = [
+  '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
+];
 
-  return (
-    <section id="itinerary" className="py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-encode text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
-            Camp Itinerary
-          </h2>
-          <p className="font-inter text-xl text-amber-600 font-medium">
-            July 6–9, 2025
-          </p>
-          <div className="w-20 h-1 bg-amber-500 mx-auto mt-6"></div>
-        </div>
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday'];
 
-        <div className="bg-white rounded-2xl shadow-md border border-neutral-200 overflow-hidden">
-          {/* Desktop Table */}
-          <div className="hidden md:block">
-            <table className="w-full">
-              <thead className="bg-amber-50">
-                <tr>
-                  <th className="px-6 py-4 text-left font-encode font-semibold text-gray-900">Date</th>
-                  <th className="px-6 py-4 text-left font-encode font-semibold text-gray-900">Morning</th>
-                  <th className="px-6 py-4 text-left font-encode font-semibold text-gray-900">Afternoon</th>
-                  <th className="px-6 py-4 text-left font-encode font-semibold text-gray-900">Evening</th>
-                </tr>
-              </thead>
-              <tbody>
-                {itineraryData.map((day, index) => (
-                  <tr key={day.date} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                    <td className="px-6 py-4 font-inter font-medium text-gray-900">{day.date}</td>
-                    <td className="px-6 py-4 font-inter text-gray-600">{day.morning}</td>
-                    <td className="px-6 py-4 font-inter text-gray-600">{day.afternoon}</td>
-                    <td className="px-6 py-4 font-inter text-gray-600">{day.evening}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Mobile Cards */}
-          <div className="md:hidden space-y-4 p-4">
-            {itineraryData.map((day) => (
-              <div key={day.date} className="bg-gray-50 rounded-lg p-4">
-                <h3 className="font-encode font-semibold text-gray-900 mb-3">{day.date}</h3>
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="font-inter text-sm text-gray-600">Morning:</span>
-                    <span className="font-inter text-sm text-gray-900">{day.morning}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="font-inter text-sm text-gray-600">Afternoon:</span>
-                    <span className="font-inter text-sm text-gray-900">{day.afternoon}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="font-inter text-sm text-gray-600">Evening:</span>
-                    <span className="font-inter text-sm text-gray-900">{day.evening}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+const schedule: { [time: string]: (string | null)[] } = {
+  '7:00':   [null, 'Wake Up', 'Wake up', 'Wake Up'],
+  '8:00':   [null, 'Breakfast', 'Breakfast', 'Breakfast'],
+  '9:00':   [null, 'SER Gospel Report', 'Special Video', 'Falsehood of Atheism'],
+  '10:00':  [null, 'Overseers Gospel Journey', 'Internet Slander', 'Gospel Worker Forum'],
+  '11:00':  [null, null, 'Faith That Overcomes...', null],
+  '12:00':  ['Begin Arriving', 'Lunch', 'Lunch', 'Lunch'],
+  '13:00':  ['Lunch', null, null, 'New Song Festival'],
+  '14:00':  [null, null, 'Gospel Worker Assessment', 'New Song Festival'],
+  '15:00':  ['Orientation', null, null, 'Fragrance'],
+  '16:00':  ['Eagle Egg Skit', 'City Tour-Whitewater Center', 'Outdoor Activities (Team Building Games)', 'Fragrance'],
+  '17:00':  ['Our Glory That We Will Have in Heaven', 'City Tour-Whitewater Center', 'Outdoor Activities (Team Building Games)', 'Fragrance'],
+  '18:00':  ['A Gospel Life With a Goal', 'Dinner', 'Dinner', 'Dinner'],
+  '19:00':  ['Dinner', 'Dinner', 'Prepare for Service', 'Dinner'],
+  '20:00':  ['End of Day', 'Spiritual Movie-Harbin', 'Service', 'End of Day / Departures'],
+  '21:00':  [null, null, 'Bonfire', null],
+  '22:00':  [null, 'End of Day', 'End of Day', null],
 };
+
+const getCellColor = (activity: string | null, dayIdx: number) => {
+  if (!activity) return '';
+  if (activity.toLowerCase().includes('lunch') || activity.toLowerCase().includes('dinner') || activity.toLowerCase().includes('breakfast')) {
+    return 'bg-green-100 text-green-900 font-semibold';
+  }
+  if (activity.toLowerCase().includes('end of day')) {
+    return 'bg-blue-100 text-blue-900 font-semibold';
+  }
+  if (activity.toLowerCase().includes('fragrance') || activity.toLowerCase().includes('service') || activity.toLowerCase().includes('bonfire') || activity.toLowerCase().includes('orientation') || activity.toLowerCase().includes('skit') || activity.toLowerCase().includes('festival') || activity.toLowerCase().includes('city tour') || activity.toLowerCase().includes('outdoor')) {
+    return 'bg-amber-100 text-amber-900 font-semibold';
+  }
+  if (activity.toLowerCase().includes('report') || activity.toLowerCase().includes('forum') || activity.toLowerCase().includes('assessment') || activity.toLowerCase().includes('movie') || activity.toLowerCase().includes('goal') || activity.toLowerCase().includes('glory') || activity.toLowerCase().includes('atheism') || activity.toLowerCase().includes('slander') || activity.toLowerCase().includes('faith')) {
+    return 'bg-yellow-100 text-yellow-900 font-semibold';
+  }
+  return 'bg-rose-100 text-rose-900 font-semibold';
+};
+
+const ItinerarySection = () => (
+  <section id="itinerary" className="py-20 bg-white">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center mb-12">
+        <h2 className="font-encode text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
+          Camp Itinerary
+        </h2>
+        <div className="w-20 h-1 bg-amber-500 mx-auto"></div>
+      </div>
+      <div className="overflow-x-auto rounded-lg shadow ring-1 ring-gray-200">
+        <table className="min-w-full border-collapse text-sm sm:text-base">
+          <thead>
+            <tr>
+              <th className="bg-amber-100 text-amber-900 px-2 py-3 border-b border-gray-200 text-left">Time</th>
+              {days.map(day => (
+                <th key={day} className="bg-amber-100 text-amber-900 px-2 py-3 border-b border-gray-200">{day}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {times.map(time => (
+              <tr key={time}>
+                <td className="bg-gray-50 px-2 py-2 border-b border-gray-100 font-semibold">{time}</td>
+                {schedule[time].map((activity, dayIdx) => (
+                  <td
+                    key={dayIdx}
+                    className={`px-2 py-2 border-b border-gray-100 align-top text-center ${getCellColor(activity, dayIdx)} rounded`}
+                  >
+                    {activity || ''}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+);
 
 export default ItinerarySection;

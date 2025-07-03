@@ -13,7 +13,7 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
           {/* Left Column - Banner Image (hidden on mobile) */}
-          <div className="hidden lg:block animate-fade-in">
+          <div className="animate-fade-in mt-12 lg:mt-0 lg:mb-0">
             <div className="aspect-square bg-white rounded-2xl shadow-md border border-neutral-200 overflow-hidden">
               <img 
                 src="/SERSummerCamp.jpg" 
