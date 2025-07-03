@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,43 +38,37 @@ const Navigation = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link
-              to="/"
+              to={location.pathname === '/' ? undefined : '/'}
+              onClick={e => {
+                if (location.pathname === '/') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               className="font-encode font-bold text-xl sm:text-2xl text-gray-900 hover:text-amber-600 transition-colors"
             >
               Summer Camp 2025
             </Link>
             
             <div className="hidden md:flex space-x-8">
-              <button
-                onClick={() => scrollToSection('lodging')}
-                className="font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors"
-              >
-                Lodging
-              </button>
               <Link
                 to="/fragrance"
                 className="font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors"
               >
                 Fragrance
               </Link>
-              <button
-                onClick={() => scrollToSection('new-song-festival')}
+              <Link
+                to="/new-song-festival"
                 className="font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors"
               >
                 New Song Festival
-              </button>
-              <button
-                onClick={() => scrollToSection('media')}
+              </Link>
+              <Link
+                to="/media"
                 className="font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors"
               >
                 Media
-              </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className="font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors"
-              >
-                About
-              </button>
+              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -111,8 +106,13 @@ const Navigation = () => {
             {/* Header */}
             <div className="flex justify-between items-center p-6 border-b border-gray-200">
               <Link
-                to="/"
-                onClick={() => setIsMobileMenuOpen(false)}
+                to={location.pathname === '/' ? undefined : '/'}
+                onClick={e => {
+                  if (location.pathname === '/') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
                 className="font-encode font-bold text-xl text-gray-900 hover:text-amber-600 transition-colors"
               >
                 Summer Camp 2025
@@ -129,12 +129,6 @@ const Navigation = () => {
 
             {/* Navigation items */}
             <div className="flex-1 px-6 py-8 space-y-6">
-              <button
-                onClick={() => scrollToSection('lodging')}
-                className="block w-full text-left font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors py-3"
-              >
-                Lodging
-              </button>
               <Link
                 to="/fragrance"
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -142,24 +136,20 @@ const Navigation = () => {
               >
                 Fragrance
               </Link>
-              <button
-                onClick={() => scrollToSection('new-song-festival')}
+              <Link
+                to="/new-song-festival"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="block w-full text-left font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors py-3"
               >
                 New Song Festival
-              </button>
-              <button
-                onClick={() => scrollToSection('media')}
+              </Link>
+              <Link
+                to="/media"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="block w-full text-left font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors py-3"
               >
                 Media
-              </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className="block w-full text-left font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors py-3"
-              >
-                About
-              </button>
+              </Link>
             </div>
           </div>
         </div>
