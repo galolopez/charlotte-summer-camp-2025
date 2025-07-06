@@ -29,8 +29,8 @@ const HeroSection = () => {
               S.E.R. Gospel Worker<br />
               <span className="text-amber-600">Summer Camp 2025</span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 mb-8 text-center lg:text-left">
-              Charlotte, North Carolina<br />July 6–9, 2025
+            <p className="text-lg sm:text-xl text-gray-600 mb-8 text-center">
+              Charlotte, NC | July 6–9
             </p>
             <div className="flex justify-center">
               <button 
