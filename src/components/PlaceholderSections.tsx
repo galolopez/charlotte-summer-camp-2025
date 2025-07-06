@@ -2,7 +2,7 @@ import React from 'react';
 
 const PlaceholderSections = () => {
   const sections = [
-    { id: 'lodging', title: 'Lodging', description: 'Information about accommodations and housing arrangements.' },
+    { id: 'lodging', title: 'Lodging', description: '' },
   ];
 
   return (
