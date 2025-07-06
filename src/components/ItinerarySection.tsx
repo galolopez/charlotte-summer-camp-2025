@@ -2,7 +2,7 @@ import React from 'react';
 import { useInView } from '../hooks/use-in-view';
 
 const times = [
-  '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
+  '7:00', '8:00', '9:00', '10:00', '10:30', '11:00', '11:30', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
 ];
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday'];
@@ -10,13 +10,15 @@ const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday'];
 const schedule: { [time: string]: (string | null)[] } = {
   '7:00':   [null, 'Wake Up', 'Wake up', 'Wake Up'],
   '8:00':   [null, 'Breakfast', 'Breakfast', 'Breakfast'],
-  '9:00':   ['Arrivals', 'Travel', 'Education: Internet Slander', 'Education: Falsehood'],
-  '10:00':  ['Arrivals', 'Whitewater', 'Education: Faith', 'of Atheism'],
-  '11:00':  ['Arrivals', 'Center', 'That Overcomes...', 'Gospel Worker Forum'],
+  '9:00':   ['Arrivals', 'Travel', 'Education: Internet', 'Education: Falsehood'],
+  '10:00':  ['Arrivals', 'National', 'Slander', 'of'],
+  '10:30':  ['Arrivals', 'Whitewater', 'Education: Faith', 'Atheism'],
+  '11:00':  ['Arrivals', 'Center', 'That', 'Gospel Worker'],
+  '11:30':  ['Arrivals', 'Lunch', 'Overcomes...', 'Forum'],
   '12:00':  ['Lunch', 'Lunch', 'Lunch', 'Lunch'],
-  '13:00':  ['Orientation', 'Whitewater', 'Gospel Worker Assessment', 'New Song'],
-  '14:00':  ['Eagle Egg Skit', 'Center', 'Outdoor Activities', 'Festival'],
-  '15:00':  ['Earth', 'Continued', '(Team Building', 'Gospel Shorts'],
+  '13:00':  ['Orientation', 'National', 'Gospel Worker Assessment', 'New Song'],
+  '14:00':  ['Eagle Egg Skit', 'Whitewater', 'Outdoor Activities', 'Festival'],
+  '15:00':  ['Earth', 'Center', '(Team Building', 'Gospel Shorts'],
   '16:00':  ['in the Universe', 'Break', 'Games)', 'Fragrance'],
   '17:00':  ['and Us', 'SER Gospel Report', 'Break', 'Fragrance'],
   '18:00':  ['Dinner', 'Dinner', 'Dinner', 'Dinner'],
@@ -59,6 +61,9 @@ const getCellColor = (activity: string | null, dayIdx: number) => {
   activity.toLowerCase().includes('slander') || 
   activity.toLowerCase().includes('faith')  || 
   activity.toLowerCase().includes('overcomes') ||
+  activity.toLowerCase().includes('of') ||
+  activity.toLowerCase().includes('that') ||
+  activity.toLowerCase().includes('worker') ||
   activity.toLowerCase().includes('falsehood')) {
     return 'bg-yellow-100 text-yellow-900 font-semibold';
   }

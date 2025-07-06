@@ -1,9 +1,14 @@
 import React from 'react';
+import { useInView } from '../hooks/use-in-view';
 
 const PlaceholderSections = () => {
   const sections = [
     { id: 'lodging', title: 'Lodging', description: '' },
   ];
+
+  // Add wow effect hooks for both sections
+  const [brothersRef, brothersInView] = useInView<HTMLDivElement>({ threshold: 0.15, once: true });
+  const [sistersRef, sistersInView] = useInView<HTMLDivElement>({ threshold: 0.15, once: true });
 
   return (
     <>
@@ -21,23 +26,19 @@ const PlaceholderSections = () => {
               <div className="w-20 h-1 bg-amber-500 mx-auto mb-8"></div>
               
               {/* Brothers Lodging */}
-              <div className="mb-12">
+              <div ref={brothersRef} className={`bg-gray-100 rounded-2xl mb-12 transition-opacity duration-1000 ${brothersInView ? 'animate-fade-in' : 'opacity-0'}`}>
                 <h3 className="font-encode text-2xl font-semibold text-gray-900 mb-6">
                   Brothers Lodging
                 </h3>
-                <div className="bg-gray-100 rounded-2xl">
-                  <img src="/brothers-lodging.png" alt="Brothers Lodging Room Assignments" className="w-full h-auto rounded-lg border border-gray-300 shadow" />
-                </div>
+                <img src="/brothers-lodging.png" alt="Brothers Lodging Room Assignments" className="w-full h-auto rounded-lg border border-gray-300 shadow" />
               </div>
 
               {/* Sisters Lodging */}
-              <div>
+              <div ref={sistersRef} className={`bg-gray-100 rounded-2xl transition-opacity duration-1000 ${sistersInView ? 'animate-fade-in' : 'opacity-0'}`}>
                 <h3 className="font-encode text-2xl font-semibold text-gray-900 mb-6">
                   Sisters Lodging
                 </h3>
-                <div className="bg-gray-100 rounded-2xl">
-                  <img src="/sisters-lodging.png" alt="Sisters Lodging Room Assignments" className="w-full h-auto rounded-lg border border-gray-300 shadow" />
-                </div>
+                <img src="/sisters-lodging.png" alt="Sisters Lodging Room Assignments" className="w-full h-auto rounded-lg border border-gray-300 shadow" />
               </div>
             </div>
           </div>
