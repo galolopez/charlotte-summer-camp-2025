@@ -10,36 +10,62 @@ const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday'];
 const schedule: { [time: string]: (string | null)[] } = {
   '7:00':   [null, 'Wake Up', 'Wake up', 'Wake Up'],
   '8:00':   [null, 'Breakfast', 'Breakfast', 'Breakfast'],
-  '9:00':   [null, 'SER Gospel Report', 'Special Video', 'Falsehood of Atheism'],
-  '10:00':  [null, 'Overseers Gospel Journey', 'Internet Slander', 'Gospel Worker Forum'],
-  '11:00':  [null, null, 'Faith That Overcomes...', null],
-  '12:00':  ['Begin Arriving', 'Lunch', 'Lunch', 'Lunch'],
-  '13:00':  ['Lunch', null, null, 'New Song Festival'],
-  '14:00':  [null, null, 'Gospel Worker Assessment', 'New Song Festival'],
-  '15:00':  ['Orientation', null, null, 'Fragrance'],
-  '16:00':  ['Eagle Egg Skit', 'City Tour-Whitewater Center', 'Outdoor Activities (Team Building Games)', 'Fragrance'],
-  '17:00':  ['Our Glory That We Will Have in Heaven', 'City Tour-Whitewater Center', 'Outdoor Activities (Team Building Games)', 'Fragrance'],
-  '18:00':  ['A Gospel Life With a Goal', 'Dinner', 'Dinner', 'Dinner'],
-  '19:00':  ['Dinner', 'Dinner', 'Prepare for Service', 'Dinner'],
-  '20:00':  ['End of Day', 'Spiritual Movie-Harbin', 'Service', 'End of Day / Departures'],
-  '21:00':  [null, null, 'Bonfire', null],
+  '9:00':   ['Arrivals', 'Travel', 'Education: Internet Slander', 'Education: Falsehood'],
+  '10:00':  ['Arrivals', 'Whitewater', 'Education: Faith', 'of Atheism'],
+  '11:00':  ['Arrivals', 'Center', 'That Overcomes...', 'Gospel Worker Forum'],
+  '12:00':  ['Lunch', 'Lunch', 'Lunch', 'Lunch'],
+  '13:00':  ['Orientation', 'Whitewater', 'Gospel Worker Assessment', 'New Song'],
+  '14:00':  ['Eagle Egg Skit', 'Center', 'Outdoor Activities', 'Festival'],
+  '15:00':  ['Earth', 'Continued', '(Team Building', 'Gospel Shorts'],
+  '16:00':  ['in the Universe', 'Break', 'Games)', 'Fragrance'],
+  '17:00':  ['and Us', 'SER Gospel Report', 'Break', 'Fragrance'],
+  '18:00':  ['Dinner', 'Dinner', 'Dinner', 'Dinner'],
+  '19:00':  ['End of Day', 'Spiritual', 'Prepare for Service', 'End of Day /'],
+  '20:00':  [null, 'Movie-Harbin', 'Third Day Service', 'Departures'],
+  '21:00':  [null, 'Fragrance', 'Bonfire', null],
   '22:00':  [null, 'End of Day', 'End of Day', null],
 };
 
 const getCellColor = (activity: string | null, dayIdx: number) => {
   if (!activity) return '';
-  if (activity.toLowerCase().includes('lunch') || activity.toLowerCase().includes('dinner') || activity.toLowerCase().includes('breakfast')) {
+  if (activity.toLowerCase().includes('lunch') || 
+  activity.toLowerCase().includes('dinner') || 
+  activity.toLowerCase().includes('breakfast')) {
     return 'bg-green-100 text-green-900 font-semibold';
   }
-  if (activity.toLowerCase().includes('end of day')) {
+  if (activity.toLowerCase().includes('end of day') ||
+  activity.toLowerCase().includes('departures') ||
+  activity.toLowerCase().includes('arrivals') ||
+  activity.toLowerCase().includes('orientation') || 
+  activity.toLowerCase().includes('wake') || 
+  activity.toLowerCase().includes('travel') || 
+  activity.toLowerCase().includes('break') || 
+  activity.toLowerCase().includes('festival') || 
+  activity.toLowerCase().includes('song')) {
     return 'bg-blue-100 text-blue-900 font-semibold';
   }
-  if (activity.toLowerCase().includes('fragrance') || activity.toLowerCase().includes('service') || activity.toLowerCase().includes('bonfire') || activity.toLowerCase().includes('orientation') || activity.toLowerCase().includes('skit') || activity.toLowerCase().includes('festival') || activity.toLowerCase().includes('city tour') || activity.toLowerCase().includes('outdoor')) {
+  if (activity.toLowerCase().includes('service') || 
+  activity.toLowerCase().includes('skit') ||
+  activity.toLowerCase().includes('city tour')) {
     return 'bg-amber-100 text-amber-900 font-semibold';
   }
-  if (activity.toLowerCase().includes('report') || activity.toLowerCase().includes('forum') || activity.toLowerCase().includes('assessment') || activity.toLowerCase().includes('movie') || activity.toLowerCase().includes('goal') || activity.toLowerCase().includes('glory') || activity.toLowerCase().includes('atheism') || activity.toLowerCase().includes('slander') || activity.toLowerCase().includes('faith')) {
+  if (activity.toLowerCase().includes('report') || 
+  activity.toLowerCase().includes('forum') || 
+  activity.toLowerCase().includes('assessment') ||
+  activity.toLowerCase().includes('goal') || 
+  activity.toLowerCase().includes('glory') || 
+  activity.toLowerCase().includes('atheism') || 
+  activity.toLowerCase().includes('internet') || 
+  activity.toLowerCase().includes('slander') || 
+  activity.toLowerCase().includes('faith')  || 
+  activity.toLowerCase().includes('overcomes') ||
+  activity.toLowerCase().includes('falsehood')) {
     return 'bg-yellow-100 text-yellow-900 font-semibold';
   }
+  if (activity.toLowerCase().includes('movie') ||
+  activity.toLowerCase().includes('fragrance'))
+  return 'bg-red-100 text-red-900 font-semibold';
+
   return 'bg-rose-100 text-rose-900 font-semibold';
 };
 
