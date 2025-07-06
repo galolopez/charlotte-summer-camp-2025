@@ -6,7 +6,7 @@ const ContactSection = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-encode text-3xl sm:text-4xl font-semibold text-gray-900 mb-6">
-            Contact Us
+            Points of Contact
           </h2>
           <div className="w-20 h-1 bg-amber-500 mx-auto"></div>
         </div>

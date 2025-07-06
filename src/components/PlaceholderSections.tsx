@@ -19,13 +19,25 @@ const PlaceholderSections = () => {
                 {section.title}
               </h2>
               <div className="w-20 h-1 bg-amber-500 mx-auto mb-8"></div>
-              <p className="font-inter text-lg text-gray-600 leading-relaxed">
-                {section.description}
-              </p>
-              <div className="mt-12 p-12 bg-gray-100 rounded-2xl border-2 border-dashed border-gray-300">
-                <p className="font-inter text-gray-500">
-                  Content coming soon...
-                </p>
+              
+              {/* Brothers Lodging */}
+              <div className="mb-12">
+                <h3 className="font-encode text-2xl font-semibold text-gray-900 mb-6">
+                  Brothers Lodging
+                </h3>
+                <div className="bg-gray-100 rounded-2xl">
+                  <img src="/brothers-lodging.png" alt="Brothers Lodging Room Assignments" className="w-full h-auto rounded-lg border border-gray-300 shadow" />
+                </div>
+              </div>
+
+              {/* Sisters Lodging */}
+              <div>
+                <h3 className="font-encode text-2xl font-semibold text-gray-900 mb-6">
+                  Sisters Lodging
+                </h3>
+                <div className="bg-gray-100 rounded-2xl">
+                  <img src="/sisters-lodging.png" alt="Sisters Lodging Room Assignments" className="w-full h-auto rounded-lg border border-gray-300 shadow" />
+                </div>
               </div>
             </div>
           </div>
