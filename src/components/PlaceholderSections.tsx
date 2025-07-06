@@ -23,6 +23,13 @@ const PlaceholderSections = () => {
               <h2 className="font-encode text-3xl sm:text-4xl font-semibold text-gray-900 mb-6">
                 {section.title}
               </h2>
+              <div className="mb-8">
+                <div className="font-encode text-xl text-gray-800 text-center leading-tight">
+                  <span className="font-bold">Hotel: Holiday Inn</span><br /><br />
+                  250 Beatty Dr.<br />
+                  Belmont, NC 28012
+                </div>
+              </div>
               <div className="w-20 h-1 bg-amber-500 mx-auto mb-8"></div>
               
               {/* Brothers Lodging */}
