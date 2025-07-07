@@ -40,6 +40,15 @@ const Activities = () => {
                     Take me to Waiver
                   </a>
                 </div>
+                
+                <div className="mt-8 text-center">
+                  <h4 className="font-encode font-semibold text-xl text-gray-900 mb-4">Rafting Schedule</h4>
+                  <img
+                    src="/rafting-schedule.png"
+                    alt="Rafting Schedule"
+                    className="max-w-full h-auto rounded-lg shadow-md"
+                  />
+                </div>
               </div>
             </div>
 
@@ -53,12 +62,24 @@ const Activities = () => {
                 <p className="font-inter text-lg text-gray-700 leading-relaxed mb-6">
                   Follows Korean independence activists who launched a daring attack in Harbin against the Japanese to gain their country's independence.
                 </p>
-                <div className="flex justify-center">
+                <div className="flex flex-col items-center space-y-6">
                   <img
                     src="/harbin.jpg"
                     alt="Harbin Movie"
                     className="max-w-full h-auto rounded-lg shadow-md"
                   />
+                  <div className="w-full max-w-2xl">
+                    <div className="relative pb-[56.25%] h-0 rounded-lg overflow-hidden shadow-md">
+                      <iframe
+                        src="https://www.youtube.com/embed/7ZEwmuOuxFQ"
+                        title="Harbin Movie Trailer"
+                        className="absolute top-0 left-0 w-full h-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
