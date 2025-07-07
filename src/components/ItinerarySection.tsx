@@ -87,7 +87,11 @@ const ItinerarySection = () => {
         </div>
         <div
           ref={tableRef}
-          className={`overflow-x-auto rounded-lg shadow ring-1 ring-gray-200 transition-opacity duration-1000 ${inView ? 'animate-fade-in' : 'opacity-0'}`}
+          className={`overflow-x-auto rounded-lg shadow ring-1 ring-gray-200 transition-all duration-700 ease-out ${
+            inView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-4'
+          }`}
         >
           <table className="min-w-full border-collapse text-sm sm:text-base">
             <thead>
