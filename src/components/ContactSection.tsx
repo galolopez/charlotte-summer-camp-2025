@@ -65,35 +65,35 @@ const ContactSection = () => {
                   <img
                     src="/justin.jpg"
                     alt="D. Justin Baker"
-                    className="w-16 h-16 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
+                    className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
                   />
                 ) : contact.name === 'B. Travis James' ? (
                   <img
                     src="/travis.jpg"
                     alt="B. Travis James"
-                    className="w-16 h-16 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
+                    className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
                   />
                 ) : contact.name === 'S. Latifa Brown' ? (
                   <img
                     src="/latifa.jpg"
                     alt="S. Latifa Brown"
-                    className="w-16 h-16 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
+                    className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
                   />
                 ) : contact.name === 'B. Isaiah Martin' ? (
                   <img
                     src="/isaiah.jpg"
                     alt="B. Isaiah Martin"
-                    className="w-16 h-16 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
+                    className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
                   />
                 ) : contact.name === 'B. Joshua Judd' ? (
                   <img
                     src="/joshua.jpg"
                     alt="B. Joshua Judd"
-                    className="w-16 h-16 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
+                    className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
                   />
                 ) : (
-                  <div className="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-24 h-24 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                   </div>

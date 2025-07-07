@@ -1,8 +1,14 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import { useInView } from '../hooks/use-in-view';
 
 const Activities = () => {
+  // Create wow effect refs for each section
+  const [whiteWaterRef, whiteWaterInView] = useInView<HTMLDivElement>({ threshold: 0.1, once: true });
+  const [movieRef, movieInView] = useInView<HTMLDivElement>({ threshold: 0.1, once: true });
+  const [teamBuildingRef, teamBuildingInView] = useInView<HTMLDivElement>({ threshold: 0.1, once: true });
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -17,12 +23,19 @@ const Activities = () => {
             </div>
 
             {/* The National White Water Center */}
-            <div className="mb-16">
+            <div 
+              ref={whiteWaterRef}
+              className={`mb-16 transition-all duration-700 ease-out ${
+                whiteWaterInView 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-4'
+              }`}
+            >
               <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-8 shadow-md border border-blue-200">
-                <h2 className="font-encode text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">
+                <h2 className="font-encode text-2xl sm:text-3xl font-semibold text-gray-900 mb-4 text-center">
                   The National White Water Center
                 </h2>
-                <div className="w-16 h-1 bg-blue-500 mb-6"></div>
+                <div className="w-16 h-1 bg-blue-500 mb-6 mx-auto"></div>
                 <p className="font-inter text-lg text-gray-700 leading-relaxed mb-6">
                   Experience the thrill of white water rafting and outdoor adventures at one of the premier outdoor recreation facilities in the Southeast. The National White Water Center offers a variety of activities for all skill levels.
                 </p>
@@ -53,12 +66,19 @@ const Activities = () => {
             </div>
 
             {/* Movie Night */}
-            <div className="mb-16">
+            <div 
+              ref={movieRef}
+              className={`mb-16 transition-all duration-700 ease-out ${
+                movieInView 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-4'
+              }`}
+            >
               <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 shadow-md border border-purple-200">
-                <h2 className="font-encode text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">
+                <h2 className="font-encode text-2xl sm:text-3xl font-semibold text-gray-900 mb-4 text-center">
                   Movie Night
                 </h2>
-                <div className="w-16 h-1 bg-purple-500 mb-6"></div>
+                <div className="w-16 h-1 bg-purple-500 mb-6 mx-auto"></div>
                 <p className="font-inter text-lg text-gray-700 leading-relaxed mb-6">
                   Follows Korean independence activists who launched a daring attack in Harbin against the Japanese to gain their country's independence.
                 </p>
@@ -85,12 +105,19 @@ const Activities = () => {
             </div>
 
             {/* Team Building Activities */}
-            <div className="mb-16">
+            <div 
+              ref={teamBuildingRef}
+              className={`mb-16 transition-all duration-700 ease-out ${
+                teamBuildingInView 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-4'
+              }`}
+            >
               <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 shadow-md border border-green-200">
-                <h2 className="font-encode text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">
+                <h2 className="font-encode text-2xl sm:text-3xl font-semibold text-gray-900 mb-4 text-center">
                   Team Building Activities
                 </h2>
-                <div className="w-16 h-1 bg-green-500 mb-6"></div>
+                <div className="w-16 h-1 bg-green-500 mb-6 mx-auto"></div>
                 <p className="font-inter text-lg text-gray-700 leading-relaxed mb-6">
                   Team building exercises and group activities designed to foster cooperation and unity.
                 </p>
