@@ -7,6 +7,9 @@ const Navigation = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Check if we're on the New Song Festival page
+  const isNewSongFestivalPage = location.pathname === '/new-song-festival';
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -45,7 +48,11 @@ const Navigation = () => {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
               }}
-              className="font-encode font-bold text-xl sm:text-2xl text-gray-900 hover:text-amber-600 transition-colors"
+              className={`font-encode font-bold text-xl sm:text-2xl transition-colors ${
+                isNewSongFestivalPage 
+                  ? (isScrolled ? 'text-gray-900 hover:text-amber-600' : 'text-white hover:text-amber-400')
+                  : 'text-gray-900 hover:text-amber-600'
+              }`}
             >
               Summer Camp 2025
             </Link>
@@ -53,25 +60,41 @@ const Navigation = () => {
             <div className="hidden md:flex space-x-8">
               <Link
                 to="/activities"
-                className="font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors"
+                className={`font-inter text-base font-medium transition-colors ${
+                  isNewSongFestivalPage 
+                    ? (isScrolled ? 'text-gray-600 hover:text-amber-600' : 'text-white hover:text-amber-400')
+                    : 'text-gray-600 hover:text-amber-600'
+                }`}
               >
                 Activities
               </Link>
               <Link
                 to="/fragrance"
-                className="font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors"
+                className={`font-inter text-base font-medium transition-colors ${
+                  isNewSongFestivalPage 
+                    ? (isScrolled ? 'text-gray-600 hover:text-amber-600' : 'text-white hover:text-amber-400')
+                    : 'text-gray-600 hover:text-amber-600'
+                }`}
               >
                 Fragrance
               </Link>
               <Link
                 to="/new-song-festival"
-                className="font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors"
+                className={`font-inter text-base font-medium transition-colors ${
+                  isNewSongFestivalPage 
+                    ? (isScrolled ? 'text-gray-600 hover:text-amber-600' : 'text-white hover:text-amber-400')
+                    : 'text-gray-600 hover:text-amber-600'
+                }`}
               >
                 New Song Festival
               </Link>
               <Link
                 to="/media"
-                className="font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors"
+                className={`font-inter text-base font-medium transition-colors ${
+                  isNewSongFestivalPage 
+                    ? (isScrolled ? 'text-gray-600 hover:text-amber-600' : 'text-white hover:text-amber-400')
+                    : 'text-gray-600 hover:text-amber-600'
+                }`}
               >
                 Media
               </Link>
@@ -81,7 +104,11 @@ const Navigation = () => {
             <div className="md:hidden">
               <button 
                 onClick={toggleMobileMenu}
-                className="text-gray-600 hover:text-amber-600 transition-colors"
+                className={`transition-colors ${
+                  isNewSongFestivalPage 
+                    ? (isScrolled ? 'text-gray-600 hover:text-amber-600' : 'text-white hover:text-amber-400')
+                    : 'text-gray-600 hover:text-amber-600'
+                }`}
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -125,7 +152,11 @@ const Navigation = () => {
               </Link>
               <button 
                 onClick={toggleMobileMenu}
-                className="text-gray-600 hover:text-amber-600 transition-colors"
+                className={`transition-colors ${
+                  isNewSongFestivalPage 
+                    ? (isScrolled ? 'text-gray-600 hover:text-amber-600' : 'text-white hover:text-amber-400')
+                    : 'text-gray-600 hover:text-amber-600'
+                }`}
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
