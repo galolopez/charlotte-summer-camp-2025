@@ -52,6 +52,12 @@ const Navigation = () => {
             
             <div className="hidden md:flex space-x-8">
               <Link
+                to="/activities"
+                className="font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors"
+              >
+                Activities
+              </Link>
+              <Link
                 to="/fragrance"
                 className="font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors"
               >
@@ -129,6 +135,13 @@ const Navigation = () => {
 
             {/* Navigation items */}
             <div className="flex-1 px-6 py-8 space-y-6">
+              <Link
+                to="/activities"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block w-full text-left font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors py-3"
+              >
+                Activities
+              </Link>
               <Link
                 to="/fragrance"
                 onClick={() => setIsMobileMenuOpen(false)}

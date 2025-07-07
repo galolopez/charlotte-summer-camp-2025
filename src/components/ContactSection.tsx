@@ -36,7 +36,7 @@ const contacts = [
 
 const ContactSection = () => {
   // Create a wow effect ref for each contact
-  const wowRefs = contacts.map(() => useInView<HTMLDivElement>({ threshold: 0.15, once: true }));
+  const wowRefs = contacts.map(() => useInView<HTMLDivElement>({ threshold: 0.1, once: true }));
 
   return (
     <section id="contact" className="py-20 bg-amber-50">
@@ -55,13 +55,49 @@ const ContactSection = () => {
               <div
                 key={contact.name}
                 ref={ref}
-                className={`bg-white rounded-2xl p-8 shadow-md border border-neutral-200 text-center h-64 flex flex-col justify-center transition-opacity duration-1000 ${inView ? 'animate-fade-in' : 'opacity-0'}`}
+                className={`bg-white rounded-2xl p-8 shadow-md border border-neutral-200 text-center h-64 flex flex-col justify-center transition-all duration-700 ease-out ${
+                  inView 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-4'
+                }`}
               >
-                <div className="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </div>
+                {contact.name === 'D. Justin Baker' ? (
+                  <img
+                    src="/justin.jpg"
+                    alt="D. Justin Baker"
+                    className="w-16 h-16 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
+                  />
+                ) : contact.name === 'B. Travis James' ? (
+                  <img
+                    src="/travis.jpg"
+                    alt="B. Travis James"
+                    className="w-16 h-16 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
+                  />
+                ) : contact.name === 'S. Latifa Brown' ? (
+                  <img
+                    src="/latifa.jpg"
+                    alt="S. Latifa Brown"
+                    className="w-16 h-16 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
+                  />
+                ) : contact.name === 'B. Isaiah Martin' ? (
+                  <img
+                    src="/isaiah.jpg"
+                    alt="B. Isaiah Martin"
+                    className="w-16 h-16 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
+                  />
+                ) : contact.name === 'B. Joshua Judd' ? (
+                  <img
+                    src="/joshua.jpg"
+                    alt="B. Joshua Judd"
+                    className="w-16 h-16 rounded-full object-cover mx-auto mb-4 border-4 border-amber-500 bg-white"
+                  />
+                ) : (
+                  <div className="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                )}
                 <h3 className="font-encode font-semibold text-xl text-gray-900 mb-2">{contact.category}</h3>
                 <h3 className="font-encode font-semibold text-xl text-gray-900 mb-2">{contact.name}</h3>
                 <a href={`tel:${contact.phone}`} className="font-inter text-gray-600 hover:text-amber-600 transition-colors">
