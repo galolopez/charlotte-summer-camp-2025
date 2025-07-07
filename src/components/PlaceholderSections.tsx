@@ -33,7 +33,11 @@ const PlaceholderSections = () => {
               <div className="w-20 h-1 bg-amber-500 mx-auto mb-8"></div>
               
               {/* Brothers Lodging */}
-              <div ref={brothersRef} className={`bg-gray-100 rounded-2xl mb-12 transition-opacity duration-1000 ${brothersInView ? 'animate-fade-in' : 'opacity-0'}`}>
+              <div ref={brothersRef} className={`bg-gray-100 rounded-2xl mb-12 transition-all duration-700 ease-out ${
+                brothersInView 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-4'
+              }`}>
                 <h3 className="font-encode text-2xl font-semibold text-gray-900 mb-6">
                   Brothers Lodging
                 </h3>
@@ -41,7 +45,11 @@ const PlaceholderSections = () => {
               </div>
 
               {/* Sisters Lodging */}
-              <div ref={sistersRef} className={`bg-gray-100 rounded-2xl transition-opacity duration-1000 ${sistersInView ? 'animate-fade-in' : 'opacity-0'}`}>
+              <div ref={sistersRef} className={`bg-gray-100 rounded-2xl transition-all duration-700 ease-out ${
+                sistersInView 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-4'
+              }`}>
                 <h3 className="font-encode text-2xl font-semibold text-gray-900 mb-6">
                   Sisters Lodging
                 </h3>
