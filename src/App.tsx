@@ -8,6 +8,7 @@ import Fragrance from "./pages/Fragrance";
 import NotFound from "./pages/NotFound";
 import Media from "./pages/Media";
 import NewSongFestival from "./pages/NewSongFestival";
+import Activities from "./pages/Activities";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/fragrance" element={<Fragrance />} />
           <Route path="/media" element={<Media />} />
           <Route path="/new-song-festival" element={<NewSongFestival />} />
+          <Route path="/activities" element={<Activities />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
