@@ -7,21 +7,31 @@ const Fragrance = () => {
     <div className="min-h-screen flex flex-col">
       <Navigation />
       <main className="flex-1 pt-16">
-        <section className="py-20 bg-white">
+        {/* Hero Image Section */}
+        <section className="w-full">
+          <img 
+            src="/fragrance.png" 
+            alt="Fragrance" 
+            className="w-full h-auto object-cover"
+            style={{ maxHeight: '60vh' }}
+          />
+        </section>
+        
+        {/* Message Section */}
+        <section className="py-20 bg-blue-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <h1 className="font-encode text-3xl sm:text-4xl font-semibold text-gray-900 mb-6">
-                Fragrance
-              </h1>
-              <div className="w-20 h-1 bg-amber-500 mx-auto mb-8"></div>
-              <p className="font-inter text-lg text-gray-600 leading-relaxed">
-                
+              <p className="font-inter text-lg text-blue-800 leading-relaxed mb-8">
+                Thanks to Father and Mother for this amazing event. Many realizations come to mind when brothers and sisters gather in unity. If you feel moved like we are, please leave a fragrance by clicking the link below!
               </p>
-              <div className="mt-12 p-12 bg-gray-100 rounded-2xl border-2 border-dashed border-gray-300">
-                <p className="font-inter text-gray-500">
-                  Content coming soon...
-                </p>
-              </div>
+              <a 
+                href="https://docs.google.com/forms/d/e/1FAIpQLSf7XXNQPkotlXtLgHI9Oh6zPm22Y2556odKMPQDI-f3jongxg/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+              >
+                Write a Fragrance
+              </a>
             </div>
           </div>
         </section>
