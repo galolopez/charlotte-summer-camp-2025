@@ -121,12 +121,20 @@ const Activities = () => {
                 <p className="font-inter text-lg text-gray-700 leading-relaxed mb-6">
                   Team building exercises and group activities designed to foster cooperation and unity.
                 </p>
-                <div className="flex justify-center">
+                <div className="flex flex-col items-center space-y-6">
                   <img
                     src="/outdoor-schedule.png"
                     alt="Outdoor Schedule"
                     className="max-w-full h-auto rounded-lg shadow-md"
-                  />
+                  /><br></br>
+                  <div className="text-center">
+                    <h4 className="font-encode font-semibold text-xl text-gray-900 mb-4">Map of the Activities</h4><br></br>
+                    <img
+                      src="/outdoor-map.png"
+                      alt="Map of the Activities"
+                      className="max-w-full h-auto rounded-lg shadow-md"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

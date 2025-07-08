@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import Media from "./pages/Media";
 import NewSongFestival from "./pages/NewSongFestival";
 import Activities from "./pages/Activities";
+import FloatingFeedbackButton from "./components/FloatingFeedbackButton";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,11 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <FloatingFeedbackButton 
+          onClick={() => {
+            window.open('https://docs.google.com/forms/d/e/1FAIpQLScbU2KI5aU6e9I6AlSjfhPxnC_tT4vxy4WWc-KSy4nWe9vzeQ/viewform', '_blank');
+          }}
+        />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
