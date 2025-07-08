@@ -126,7 +126,27 @@ const Activities = () => {
                     src="/outdoor-schedule.png"
                     alt="Outdoor Schedule"
                     className="max-w-full h-auto rounded-lg shadow-md"
-                  /><br></br>
+                  />
+                  <div className="w-full text-center mt-8"><br></br>
+                    <h4 className="font-encode font-semibold text-xl text-gray-900 mb-4">Teams</h4><br></br>
+                    <div className="flex flex-col items-center gap-6">
+                      <img
+                        src="/outdoor-team-1.png"
+                        alt="Outdoor Team 1"
+                        className="max-w-full h-auto rounded-lg shadow-md"
+                      />
+                      <img
+                        src="/outdoor-team-2.png"
+                        alt="Outdoor Team 2"
+                        className="max-w-full h-auto rounded-lg shadow-md"
+                      />
+                      <img
+                        src="/outdoor-team-3.png"
+                        alt="Outdoor Team 3"
+                        className="max-w-full h-auto rounded-lg shadow-md"
+                      />
+                    </div>
+                  </div>
                   <div className="text-center">
                     <h4 className="font-encode font-semibold text-xl text-gray-900 mb-4">Map of the Activities</h4><br></br>
                     <img

@@ -11,8 +11,7 @@ const HeroSection = () => {
   return (
     <section className="min-h-screen bg-amber-100 flex items-center justify-center relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
-          {/* Left Column - Banner Image (hidden on mobile) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center min-h-screen py-20">
           <div className="animate-fade-in lg:mt-0 lg:mb-0">
             <div className="aspect-square bg-white rounded-2xl shadow-md border border-neutral-200 overflow-hidden">
               <img 
@@ -35,7 +34,7 @@ const HeroSection = () => {
             <div className="flex justify-center">
               <button 
                 onClick={scrollToAbout}
-                className="px-10 py-4 sm:px-12 sm:py-5 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors duration-200 font-medium text-lg sm:text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 min-h-[56px] sm:min-h-[64px]"
+                className="px-10 py-4 sm:px-12 sm:py-5 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors duration-200 font-bold text-lg sm:text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 min-h-[56px] sm:min-h-[64px]"
               >
                 Let's Go!
               </button>
