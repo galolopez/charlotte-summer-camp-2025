@@ -1,8 +1,11 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import { useInView } from '../hooks/use-in-view';
 
 const NewSongFestival = () => {
+  const [heroRef, heroInView] = useInView<HTMLDivElement>({ threshold: 0.15, once: true });
+
   return (
     <div className="min-h-screen flex flex-col bg-[#142a3a]">
       <Navigation />
@@ -10,12 +13,26 @@ const NewSongFestival = () => {
         {/* Hero Banner Section */}
         <section className="min-h-screen bg-[#142a3a] flex items-center justify-center relative overflow-hidden">
           <div className="w-full">
-            <div className="flex justify-center items-start pt-0 pb-2 sm:pt-0 sm:pb-8 lg:pt-0 lg:pb-16">
-              <div className="w-full max-w-none sm:max-w-3xl lg:max-w-7xl px-0 sm:px-4 lg:px-8">
+            <div className="flex justify-center items-start pt-0 pb-0 sm:pt-0 sm:pb-8 lg:pt-0 lg:pb-16">
+              <div 
+                ref={heroRef}
+                className={`w-full max-w-none sm:max-w-3xl lg:max-w-7xl px-0 sm:px-4 lg:px-8 ${
+                  heroInView 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-4'
+                }`}
+                style={{ 
+                  transform: heroInView 
+                    ? 'translateY(-6rem)' 
+                    : 'translateY(-6rem) translateY(1rem)',
+                  opacity: heroInView ? 1 : 0,
+                  transition: 'all 1s ease-out'
+                }}
+              >
                 <img 
                   src="/new-song-festival.png" 
                   alt="New Song Festival" 
-                  className="w-full h-auto object-contain mx-auto"
+                  className="w-full h-auto object-contain mx-auto scale-150 sm:scale-100"
                 />
               </div>
             </div>
