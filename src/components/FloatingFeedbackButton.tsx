@@ -16,7 +16,7 @@ const FloatingFeedbackButton: React.FC<FloatingFeedbackButtonProps> = ({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg p-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 ${className}`}
+      className={`fixed bottom-4 right-4 z-50 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg p-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 ${className}`}
       style={{
         width: '70px',
         height: '70px'
