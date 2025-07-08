@@ -22,6 +22,22 @@ const Activities = () => {
               <div className="w-20 h-1 bg-amber-500 mx-auto"></div>
             </div>
 
+            {/* Gospel Worker Forum Section (integrated style) */}
+            <div className="mb-16 transition-all duration-700 ease-out bg-white rounded-2xl p-8 shadow-md border border-amber-200">
+              <h2 className="font-encode text-2xl sm:text-3xl font-semibold text-gray-900 mb-4 text-center">Gospel Worker Forum</h2>
+              <p className="font-inter text-lg text-gray-700 mb-8 text-center">Have a question for the overseers?<br></br> Submit your questions for the forum using the button below.</p>
+              <div className="flex justify-center">
+                <a
+                  href="https://docs.google.com/forms/d/1pmfO-MVbwVHpQ-6Ut50op0XYOHcIeRUqpAlVcEv4BJg/viewform?edit_requested=true"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white font-bold py-4 px-10 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                >
+                  Ask a Question
+                </a>
+              </div>
+            </div>
+
             {/* The National White Water Center */}
             <div 
               ref={whiteWaterRef}
@@ -53,7 +69,6 @@ const Activities = () => {
                     Take me to Waiver
                   </a>
                 </div>
-                
                 <div className="mt-8 text-center">
                   <h4 className="font-encode font-semibold text-xl text-gray-900 mb-4">Rafting Schedule</h4>
                   <img
@@ -61,6 +76,7 @@ const Activities = () => {
                     alt="Rafting Schedule"
                     className="max-w-full h-auto rounded-lg shadow-md"
                   />
+                
                 </div>
               </div>
             </div>
@@ -166,4 +182,4 @@ const Activities = () => {
   );
 };
 
-export default Activities; 
+export default Activities;
