@@ -8,6 +8,7 @@ const NewSongFestival = () => {
   const [heroRef, heroInView] = useInView<HTMLDivElement>({ threshold: 0.15, once: true });
   const [sittingRef, sittingInView] = useInView<HTMLDivElement>({ threshold: 0.15, once: true });
   const [qrRef, qrInView] = useInView<HTMLDivElement>({ threshold: 0.15, once: true });
+  const [lineupRef, lineupInView] = useInView<HTMLDivElement>({ threshold: 0.15, once: true });
 
   return (
     <div className="min-h-screen flex flex-col bg-[#142a3a]">
@@ -41,7 +42,70 @@ const NewSongFestival = () => {
             </div>
           </div>
         </section>
-        
+
+        {/* Lineup & Schedule Section */}
+        <section className="py-20 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h2 className="font-encode text-3xl sm:text-4xl font-semibold text-gray-900 mb-8">
+                Lineup & Schedule
+              </h2>
+              <div className="w-20 h-1 bg-amber-500 mx-auto mb-12"></div>
+            </div>
+            <div 
+              ref={lineupRef}
+              className={`overflow-x-auto transition-all duration-700 ease-out ${
+                lineupInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm table-fixed">
+                <thead>
+                  <tr>
+                    <th className="w-32 px-4 py-3 border-b text-left font-semibold text-gray-700 bg-gray-50">Time</th>
+                    <th className="px-4 py-3 border-b text-left font-semibold text-gray-700 bg-gray-50">Event / Details</th>
+                  </tr>
+                </thead>
+                <tbody className="text-gray-800">
+                  <tr>
+                    <td className="px-4 py-3 border-b align-top whitespace-nowrap">1:35 PM</td>
+                    <td className="px-4 py-3 border-b">
+                      <span className="font-semibold">Choir Competition:</span>
+                      <ol className="list-decimal ml-6 mt-2 space-y-1">
+                        <li>Memphis + Birmingham </li>
+                        <li>Charlotte </li>
+                        <li>Miami </li>
+                        <li>Norcross + Marietta </li>
+                        <li>Atlanta </li>
+                        <li>Durham </li>
+                        <li>Orlando + Tampa </li>
+                      </ol>
+                      <div className="mt-2">
+                        <span className="font-semibold">United Choir + Octet</span> 
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 border-b align-top whitespace-nowrap">2:20 PM</td>
+                    <td className="px-4 py-3 border-b">Camp Video</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 border-b align-top whitespace-nowrap">2:25 PM</td>
+                    <td className="px-4 py-3">Choose Favorite Choir </td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 border-b align-top whitespace-nowrap">2:50 PM</td>
+                    <td className="px-4 py-3">Prayer Time</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 align-top whitespace-nowrap">3:05 PM</td>
+                    <td className="px-4 py-3">Award Presentation & Close</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
         {/* Sitting Arrangements Section */}
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
