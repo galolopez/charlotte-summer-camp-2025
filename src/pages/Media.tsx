@@ -7,20 +7,25 @@ const Media = () => {
     <div className="min-h-screen flex flex-col">
       <Navigation />
       <main className="flex-1 pt-16">
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Share Your Camp Footage Section */}
+        <section className="py-20 bg-blue-50">
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <h1 className="font-encode text-3xl sm:text-4xl font-semibold text-gray-900 mb-6">
-                Media
-              </h1>
-              <div className="w-20 h-1 bg-amber-500 mx-auto mb-8"></div>
-              <p className="font-inter text-lg text-gray-600 leading-relaxed">
+              <h2 className="font-encode text-2xl sm:text-3xl font-semibold text-blue-900 mb-6">
+                Upload Your Camp Footage
+              </h2>
+              <p className="font-inter text-lg text-blue-800 leading-relaxed mb-8">
+                God bless you!<br></br> If you captured any photos or videos during the summer camp, please share them with us.<br></br> Thank you and we hope to see you again soon!
               </p>
-              <div className="mt-12 p-12 bg-gray-100 rounded-2xl border-2 border-dashed border-gray-300">
-                <p className="font-inter text-gray-500">
-                  Content coming soon...
-                </p>
-              </div>
+              <a
+                href="https://drive.google.com/drive/folders/1OGVMupcf9-Yc7S-ZwJtuuZ6DQPahylVa?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 text-lg shadow-md"
+              >
+                Upload Here
+              </a>
             </div>
           </div>
         </section>
