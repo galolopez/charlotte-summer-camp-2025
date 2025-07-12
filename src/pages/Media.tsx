@@ -8,6 +8,30 @@ const Media = () => {
       <Navigation />
       <main className="flex-1 pt-16">
 
+        {/* Summer Camp Recap Video Section */}
+        <section className="py-20 bg-gradient-to-r from-purple-50 to-pink-50">
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h2 className="font-encode text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">
+                Summer Camp 2025 Recap Video
+              </h2>
+              <div className="w-16 h-1 bg-purple-500 mb-6 mx-auto"></div>
+              <div className="w-full max-w-2xl mx-auto">
+                <div className="relative pb-[56.25%] h-0 rounded-lg overflow-hidden shadow-md">
+                  <iframe
+                    src="https://www.youtube.com/embed/NzgUmHYyLgM"
+                    title="Summer Camp 2025 Recap Video"
+                    className="absolute top-0 left-0 w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Share Your Camp Footage Section */}
         <section className="py-20 bg-blue-50">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
