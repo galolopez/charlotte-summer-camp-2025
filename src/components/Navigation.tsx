@@ -36,7 +36,9 @@ const Navigation = () => {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
+        isScrolled
+          ? 'bg-white/80 backdrop-blur-md shadow-sm'
+          : (location.pathname === '/' ? 'bg-amber-100' : 'bg-transparent')
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -97,6 +99,16 @@ const Navigation = () => {
                 }`}
               >
                 Media
+              </Link>
+              <Link
+                to="/lost-and-found"
+                className={`font-inter text-base font-medium transition-colors ${
+                  isNewSongFestivalPage 
+                    ? (isScrolled ? 'text-gray-600 hover:text-amber-600' : 'text-white hover:text-amber-400')
+                    : 'text-gray-600 hover:text-amber-600'
+                }`}
+              >
+                Lost & Found
               </Link>
             </div>
 
@@ -193,6 +205,13 @@ const Navigation = () => {
                 className="block w-full text-left font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors py-3"
               >
                 Media
+              </Link>
+              <Link
+                to="/lost-and-found"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block w-full text-left font-inter text-base font-medium text-gray-600 hover:text-amber-600 transition-colors py-3"
+              >
+                Lost & Found
               </Link>
             </div>
           </div>

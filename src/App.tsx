@@ -10,6 +10,7 @@ import Media from "./pages/Media";
 import NewSongFestival from "./pages/NewSongFestival";
 import Activities from "./pages/Activities";
 import FloatingFeedbackButton from "./components/FloatingFeedbackButton";
+import LostAndFound from "./pages/LostAndFound";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/media" element={<Media />} />
           <Route path="/new-song-festival" element={<NewSongFestival />} />
           <Route path="/activities" element={<Activities />} />
+          <Route path="/lost-and-found" element={<LostAndFound />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
