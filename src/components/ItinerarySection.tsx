@@ -77,14 +77,14 @@ const getCellColor = (activity: string | null, dayIdx: number) => {
 const ItinerarySection = () => {
   const [tableRef, inView] = useInView<HTMLDivElement>({ threshold: 0.15, once: true });
   return (
-    <section id="itinerary" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="font-encode text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
-            Camp Itinerary
-          </h2>
-          <div className="w-20 h-1 bg-amber-500 mx-auto"></div>
-        </div>
+  <section id="itinerary" className="py-20 bg-white">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center mb-12">
+        <h2 className="font-encode text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
+          Camp Itinerary
+        </h2>
+        <div className="w-20 h-1 bg-amber-500 mx-auto"></div>
+      </div>
         <div
           ref={tableRef}
           className={`overflow-x-auto rounded-lg shadow ring-1 ring-gray-200 transition-all duration-700 ease-out ${
@@ -93,35 +93,35 @@ const ItinerarySection = () => {
               : 'opacity-0 translate-y-4'
           }`}
         >
-          <table className="min-w-full border-collapse text-sm sm:text-base">
-            <thead>
-              <tr>
-                <th className="bg-amber-100 text-amber-900 px-2 py-3 border-b border-gray-200 text-left">Time</th>
-                {days.map(day => (
-                  <th key={day} className="bg-amber-100 text-amber-900 px-2 py-3 border-b border-gray-200">{day}</th>
+        <table className="min-w-full border-collapse text-sm sm:text-base">
+          <thead>
+            <tr>
+              <th className="bg-amber-100 text-amber-900 px-2 py-3 border-b border-gray-200 text-left">Time</th>
+              {days.map(day => (
+                <th key={day} className="bg-amber-100 text-amber-900 px-2 py-3 border-b border-gray-200">{day}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {times.map(time => (
+              <tr key={time}>
+                <td className="bg-gray-50 px-2 py-2 border-b border-gray-100 font-semibold">{time}</td>
+                {schedule[time].map((activity, dayIdx) => (
+                  <td
+                    key={dayIdx}
+                    className={`px-2 py-2 border-b border-gray-100 align-top text-center ${getCellColor(activity, dayIdx)} rounded`}
+                  >
+                    {activity || ''}
+                  </td>
                 ))}
               </tr>
-            </thead>
-            <tbody>
-              {times.map(time => (
-                <tr key={time}>
-                  <td className="bg-gray-50 px-2 py-2 border-b border-gray-100 font-semibold">{time}</td>
-                  {schedule[time].map((activity, dayIdx) => (
-                    <td
-                      key={dayIdx}
-                      className={`px-2 py-2 border-b border-gray-100 align-top text-center ${getCellColor(activity, dayIdx)} rounded`}
-                    >
-                      {activity || ''}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 };
 
 export default ItinerarySection;
